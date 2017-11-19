@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017 | Hexo</title>
+  <title>centos安装vsftpd | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2017/index.html">
+  <meta name="description" content="centos 安装 vftpd 安装vsftpd12345678910# 查看当前系统版本# cat /etc/redhat-release CentOS release 6.5 (Final)# 查看是否已经安装vsftpd# rpm -qa | grep vsftpd# 如果没有，就安装，并设置开机启动# yum -y install vsftpd# chkconfig vsftpd on 基">
+<meta name="keywords" content="centos vsftpd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos安装vsftpd">
+<meta property="og:url" content="http://yoursite.com/2017/11/19/vsftpd/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="centos 安装 vftpd 安装vsftpd12345678910# 查看当前系统版本# cat /etc/redhat-release CentOS release 6.5 (Final)# 查看是否已经安装vsftpd# rpm -qa | grep vsftpd# 如果没有，就安装，并设置开机启动# yum -y install vsftpd# chkconfig vsftpd on 基">
+<meta property="og:updated_time" content="2017-11-19T08:56:09.013Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="centos安装vsftpd">
+<meta name="twitter:description" content="centos 安装 vftpd 安装vsftpd12345678910# 查看当前系统版本# cat /etc/redhat-release CentOS release 6.5 (Final)# 查看是否已经安装vsftpd# rpm -qa | grep vsftpd# 如果没有，就安装，并设置开机启动# yum -y install vsftpd# chkconfig vsftpd on 基">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,36 +154,72 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-vsftpd" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/19/vsftpd/" class="archive-article-date">
-  	<time datetime="2017-11-19T08:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/19/vsftpd/">centos安装vsftpd</a>
+    <h1 class="article-title" itemprop="name">
+      centos安装vsftpd
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/11/19/vsftpd/" class="archive-article-date">
+  	<time datetime="2017-11-19T08:11:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>centos 安装 vftpd</p>
+<h2 id="安装vsftpd"><a href="#安装vsftpd" class="headerlink" title="安装vsftpd"></a>安装vsftpd</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前系统版本</span></span><br><span class="line"><span class="comment"># cat /etc/redhat-release </span></span><br><span class="line">CentOS release 6.5 (Final)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看是否已经安装vsftpd</span></span><br><span class="line"><span class="comment"># rpm -qa | grep vsftpd</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果没有，就安装，并设置开机启动</span></span><br><span class="line"><span class="comment"># yum -y install vsftpd</span></span><br><span class="line"><span class="comment"># chkconfig vsftpd on</span></span><br></pre></td></tr></table></figure>
+<h2 id="基于虚拟用户的配置"><a href="#基于虚拟用户的配置" class="headerlink" title="基于虚拟用户的配置"></a>基于虚拟用户的配置</h2><p>所谓虚拟用户就是没有使用真实的帐户，只是通过映射到真实帐户和设置权限的目的。虚拟用户不能登录CentOS系统。</p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /etc/vsftpd/vsftpd.conf</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#服务器独立运行</span></span><br><span class="line">listen=YES</span><br><span class="line"><span class="comment">#设定不允许匿名访问</span></span><br><span class="line">anonymous_enable=NO</span><br><span class="line"><span class="comment">#设定本地用户可以访问。注：如使用虚拟宿主用户，在该项目设定为NO的情况下所有虚拟用户将无法访问</span></span><br><span class="line">local_enable=YES</span><br><span class="line"><span class="comment">#使用户不能离开主目录</span></span><br><span class="line">chroot_list_enable=YES</span><br><span class="line"><span class="comment">#设定支持ASCII模式的上传和下载功能</span></span><br><span class="line">ascii_upload_enable=YES</span><br><span class="line">ascii_download_enable=YES</span><br><span class="line"><span class="comment">#PAM认证文件名。PAM将根据/etc/pam.d/vsftpd进行认证</span></span><br><span class="line">pam_service_name=vsftpd</span><br><span class="line"><span class="comment">#设定启用虚拟用户功能</span></span><br><span class="line">guest_enable=YES</span><br><span class="line"><span class="comment">#指定虚拟用户的宿主用户，CentOS中已经有内置的ftp用户了</span></span><br><span class="line">guest_username=ftp</span><br><span class="line"><span class="comment">#设定虚拟用户个人vsftp的CentOS FTP服务文件存放路径。存放虚拟用户个性的CentOS FTP服务文件(配置文件名=虚拟用户名)</span></span><br><span class="line">user_config_dir=/etc/vsftpd/vuser_conf</span><br><span class="line"><span class="comment">#配置vsftpd日志（可选）</span></span><br><span class="line">xferlog_enable=YES</span><br><span class="line">xferlog_std_format=YES</span><br><span class="line">xferlog_file=/var/<span class="built_in">log</span>/xferlog</span><br><span class="line">dual_log_enable=YES</span><br><span class="line">vsftpd_log_file=/var/<span class="built_in">log</span>/vsftpd.log</span><br></pre></td></tr></table></figure>
+<h2 id="用户认证管理"><a href="#用户认证管理" class="headerlink" title="用户认证管理"></a>用户认证管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装Berkeley DB工具，很多人找不到db_load的问题就是没有安装这个包</span></span><br><span class="line"><span class="comment"># yum install db4 db4-utils</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#创建用户密码文本，注意奇行是用户名，偶行是密码</span></span><br><span class="line"><span class="comment"># vim /etc/vsftpd/vuser_passwd.txt</span></span><br><span class="line"><span class="built_in">test</span>    <span class="comment">##账号</span></span><br><span class="line">123456  <span class="comment">##密码</span></span><br><span class="line">注意：不要有空行，一行账号 一行密码；奇数行为帐号，偶数行为密码</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成虚拟用户认证的db文件</span></span><br><span class="line"><span class="comment"># db_load -T -t hash -f /etc/vsftpd/vuser_passwd.txt /etc/vsftpd/vuser_passwd.db</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#编辑认证文件，全部注释掉原来语句，再增加以下两句</span></span><br><span class="line"><span class="comment"># vim /etc/pam.d/vsftpd</span></span><br><span class="line">auth required pam_userdb.so db=/etc/vsftpd/vuser_passwd</span><br><span class="line">account required pam_userdb.so db=/etc/vsftpd/vuser_passwd</span><br><span class="line"></span><br><span class="line"><span class="comment">#创建虚拟用户配置文件</span></span><br><span class="line"><span class="comment"># mkdir /etc/vsftpd/vuser_conf/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#文件名等于vuser_passwd.txt里面的账户名，否则下面设置无效</span></span><br><span class="line"><span class="comment"># vim /etc/vsftpd/vuser_conf/test</span></span><br><span class="line"><span class="comment">#虚拟用户根目录,根据实际情况修改</span></span><br><span class="line">local_root=/home/ftproot/pub</span><br><span class="line">write_enable=YES                <span class="comment">##写权限</span></span><br><span class="line">anon_umask=022                  <span class="comment">##由于web页面的特殊性，故单独设置上传文件权限为755，此掩码值可根据具体情况更改</span></span><br><span class="line">anon_world_readable_only=NO</span><br><span class="line">anon_upload_enable=YES          <span class="comment">##上传权限</span></span><br><span class="line">anon_mkdir_write_enable=YES     <span class="comment">##新建目录权限</span></span><br><span class="line">anon_other_write_enable=YES     <span class="comment">##删除/重命名权限</span></span><br></pre></td></tr></table></figure>
+<h2 id="设置FTP根目录权限"><a href="#设置FTP根目录权限" class="headerlink" title="设置FTP根目录权限"></a>设置FTP根目录权限</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#最新的vsftpd要求对主目录不能有写的权限所以ftp为755，主目录下面的子目录再设置777权限</span></span><br><span class="line"><span class="comment"># mkdir /home/ftproot</span></span><br><span class="line"><span class="comment"># chmod -R 755 /home/ftproot</span></span><br><span class="line"><span class="comment"># chmod -R 777 /home/ftproot/pub</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#建立限制用户访问目录的空文件</span></span><br><span class="line"><span class="comment"># touch /etc/vsftpd/chroot_list</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#如果启用vsftpd日志需手动建立日志文件</span></span><br><span class="line"><span class="comment"># touch /var/log/xferlog </span></span><br><span class="line"><span class="comment"># touch /var/log/vsftpd.log</span></span><br></pre></td></tr></table></figure>
+<h2 id="设置iptable开放21端口"><a href="#设置iptable开放21端口" class="headerlink" title="设置iptable开放21端口"></a>设置iptable开放21端口</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /etc/sysconfig/iptables</span></span><br><span class="line">-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="553-Could-not-create-file"><a href="#553-Could-not-create-file" class="headerlink" title="553 Could not create file"></a>553 Could not create file</h3><pre><code class="bash">1、首先确保你的FTP目录 文件是可写的，ls -l 可以查看 如果不是则 chmod 777 ftpd目录
+2、selinux设置问题
+使用命令getsebool -a|grep ftp 查看
+ftpd_disable_trans ftp_home_dir allow_ftpd_full_access 是否为on 
+如果不是则使用
+<span class="comment"># setsebool allow_sftpd_full_access on </span>
+<span class="comment"># setsebool ftpd_disable_trans on</span>
+<span class="comment"># setsebool ftp_home_dir on</span>
+</code></pre>
+<h3 id="读取列表失败"><a href="#读取列表失败" class="headerlink" title="读取列表失败"></a>读取列表失败</h3><p>把iptable stop</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -190,46 +231,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/19/vsftpd/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/10/hello-world/" class="archive-article-date">
-  	<time datetime="2017-11-10T14:35:32.545Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-10</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/11/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/10/hello-world/">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -252,8 +353,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
