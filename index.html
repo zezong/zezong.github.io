@@ -151,6 +151,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python-use" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/python-use/">python常用用法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/20/python-use/" class="archive-article-date">
+  	<time datetime="2017-11-20T01:43:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="python常用用法"><a href="#python常用用法" class="headerlink" title="python常用用法"></a>python常用用法</h2><h3 id="字符替换"><a href="#字符替换" class="headerlink" title="字符替换"></a>字符替换</h3><p>python 字符串替换可以用2种方法实现:<br><br>1、是用字符串本身的方法<br><br>2、用正则来替换字符串<br></p>
+<p>例子： a = “hello word”</p>
+<h4 id="1、用字符串本身的replace方法"><a href="#1、用字符串本身的replace方法" class="headerlink" title="1、用字符串本身的replace方法"></a>1、用字符串本身的replace方法</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span> a.replace(<span class="string">'word'</span>, <span class="string">'python'</span>)</span><br></pre></td></tr></table></figure>
+<p>输出结果是 hello python</p>
+<h4 id="2、用正则来替换字符串"><a href="#2、用正则来替换字符串" class="headerlink" title="2、用正则来替换字符串"></a>2、用正则来替换字符串</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line">strinfo = re.compile(<span class="string">'word'</span>)</span><br><span class="line"><span class="built_in">print</span> strinfo.sub(<span class="string">'python'</span>, a)</span><br></pre></td></tr></table></figure>
+<p>输出结果是 hello python</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/20/python-use/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vsftpd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -396,6 +475,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">centos vsftpd</a>
