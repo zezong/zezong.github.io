@@ -45,7 +45,7 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="">ZeZong</a></h1>
+		  <h1 class="header-author"><a href="">Ze Zong</a></h1>
 		</hgroup>
 		
 
@@ -103,7 +103,7 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">ZeZong</h1>
+			  <h1 class="header-author js-header-author">Ze Zong</h1>
 			</hgroup>
 			
 			
@@ -150,6 +150,80 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-ftp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/21/ftp/">ftp 连接上传下载</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/21/ftp/" class="archive-article-date">
+  	<time datetime="2017-11-21T03:35:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ftp-连接上传下载"><a href="#ftp-连接上传下载" class="headerlink" title="ftp 连接上传下载"></a>ftp 连接上传下载</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding: UTF-8 -*-</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># ftp 连接上传下载</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">import ftplib</span><br><span class="line">import os</span><br><span class="line">import os.path</span><br><span class="line">import shutil</span><br><span class="line">import datetime</span><br><span class="line"></span><br><span class="line">def ftp_up(filename):</span><br><span class="line">    ftp=ftplib.FTP() </span><br><span class="line">    ftp.set_debuglevel(2)<span class="comment">#打开调试级别2，显示详细信息;0为关闭调试信息 </span></span><br><span class="line">    ftp.connect(<span class="string">'192.168.0.1'</span>,<span class="string">'21'</span>)<span class="comment">#连接 </span></span><br><span class="line">    ftp.login(<span class="string">'user'</span>,<span class="string">'passwd'</span>)<span class="comment">#登录，如果匿名登录则用空串代替即可 </span></span><br><span class="line">    <span class="built_in">print</span> ftp.getwelcome()<span class="comment">#显示ftp服务器欢迎信息</span></span><br><span class="line">    try:</span><br><span class="line">        ftp.mkd(<span class="string">'pdf'</span>)  </span><br><span class="line">    except:  </span><br><span class="line">        <span class="built_in">print</span>(<span class="string">'dir has existed %s'</span> % <span class="string">'pdf'</span>)</span><br><span class="line"></span><br><span class="line">    ftp.cwd(<span class="string">'pdf'</span>) <span class="comment">#选择操作目录 </span></span><br><span class="line">    bufsize = 1024<span class="comment">#设置缓冲块大小 </span></span><br><span class="line">    file_handler = open(filename,<span class="string">'rb'</span>)<span class="comment">#以读模式在本地打开文件 </span></span><br><span class="line">    ftp.storbinary(<span class="string">'STOR %s'</span> % os.path.basename(filename),file_handler,bufsize)<span class="comment">#上传文件 </span></span><br><span class="line">    ftp.set_debuglevel(0) </span><br><span class="line">    file_handler.close() </span><br><span class="line">    ftp.quit() </span><br><span class="line">    <span class="built_in">print</span> <span class="string">"ftp up OK"</span> </span><br><span class="line"> </span><br><span class="line">def ftp_down(host,port,user,passw,rootDir,locaDir): </span><br><span class="line">    ftp=ftplib.FTP() </span><br><span class="line">    ftp.set_debuglevel(2) </span><br><span class="line">    ftp.connect(host,port) </span><br><span class="line">    ftp.login(user,passw) </span><br><span class="line">    <span class="built_in">print</span> ftp.getwelcome()<span class="comment">#显示ftp服务器欢迎信息 </span></span><br><span class="line">    ftp.cwd(rootDir) <span class="comment">#选择操作目录 </span></span><br><span class="line">    files = ftp.nlst()</span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> files:   </span><br><span class="line">        bufsize = 1024 </span><br><span class="line">        file_handler = open(locaDir + name,<span class="string">'wb'</span>).write <span class="comment">#以写模式在本地打开文件 </span></span><br><span class="line">        ftp.retrbinary(<span class="string">'RETR %s'</span> % os.path.basename(name),file_handler,bufsize)<span class="comment">#接收服务器上文件并写入本地文件 </span></span><br><span class="line">    ftp.set_debuglevel(0) </span><br><span class="line">    ftp.quit() </span><br><span class="line">    <span class="built_in">print</span> <span class="string">"ftp down OK"</span></span><br><span class="line"></span><br><span class="line">def copyFiles(sourceDir,  targetDir): </span><br><span class="line">    <span class="keyword">if</span> sourceDir.find(<span class="string">".svn"</span>) &gt; 0: </span><br><span class="line">        <span class="built_in">return</span> </span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> os.listdir(sourceDir): </span><br><span class="line">        sourceFile = os.path.join(sourceDir,  file) </span><br><span class="line">        targetFile = os.path.join(targetDir,  file) </span><br><span class="line">        <span class="keyword">if</span> os.path.isfile(sourceFile): </span><br><span class="line">            <span class="keyword">if</span> not os.path.exists(targetDir):  </span><br><span class="line">                os.makedirs(targetDir)  </span><br><span class="line">            <span class="keyword">if</span> not os.path.exists(targetFile) or(os.path.exists(targetFile) and (os.path.getsize(targetFile) != os.path.getsize(sourceFile))):  </span><br><span class="line">                    open(targetFile, <span class="string">"wb"</span>).write(open(sourceFile, <span class="string">"rb"</span>).<span class="built_in">read</span>()) </span><br><span class="line">        <span class="keyword">if</span> os.path.isdir(sourceFile): </span><br><span class="line">            First_Directory = False </span><br><span class="line">            copyFiles(sourceFile, targetFile)</span><br><span class="line">    <span class="built_in">print</span> <span class="string">'copy them to '</span>+targetDir</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#下载</span></span><br><span class="line">ftp_down(<span class="string">'192.168.0.1'</span>,<span class="string">'21'</span>,<span class="string">'user'</span>,<span class="string">"passwd"</span>,<span class="string">'happ'</span>,<span class="string">'toftp/'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#上传</span></span><br><span class="line">filesPath = <span class="string">'/home/data/company_annual_pdf'</span></span><br><span class="line"><span class="keyword">for</span> root,<span class="built_in">dirs</span>,files <span class="keyword">in</span> os.walk(filesPath):</span><br><span class="line">    <span class="keyword">for</span> f <span class="keyword">in</span> files:</span><br><span class="line">        ftp_up(os.path.join(root,f))</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ftp upload download</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/21/ftp/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-mysql-use" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -468,7 +542,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 ZeZong
+    		&copy; 2017 Ze Zong
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -551,7 +625,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">ftp upload download</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,7 +637,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
             
             <div class="clearfix"></div>
