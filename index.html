@@ -151,6 +151,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-yii-fix" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/23/yii-fix/">yii 常见问题处理</a>
+    </h1>
+  
+
+        
+        <a href="/2017/11/23/yii-fix/" class="archive-article-date">
+  	<time datetime="2017-11-23T01:01:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="yii-常见问题处理"><a href="#yii-常见问题处理" class="headerlink" title="yii 常见问题处理"></a>yii 常见问题处理</h2><h3 id="post-请求接口时报404"><a href="#post-请求接口时报404" class="headerlink" title="post 请求接口时报404"></a>post 请求接口时报404</h3><p>这是由于YII处理post请求，是有一个CSRF验证</p>
+<h4 id="解决方法一："><a href="#解决方法一：" class="headerlink" title="解决方法一："></a>解决方法一：</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 全局解决 </span></span><br><span class="line"><span class="comment">// 修改config/web.php</span></span><br><span class="line">$config = [</span><br><span class="line">    <span class="string">'components'</span> =&gt; [</span><br><span class="line">        <span class="string">'request'</span> =&gt; [</span><br><span class="line">            <span class="comment">// !!! insert a secret key in the following (if it is empty) - this is required by cookie validation</span></span><br><span class="line">            <span class="string">'cookieValidationKey'</span> =&gt; <span class="string">'sfsdfsdfdsfewfwefef'</span>,</span><br><span class="line">            <span class="string">'enableCookieValidation'</span> =&gt; <span class="keyword">false</span>,      </span><br><span class="line">            <span class="string">'enableCsrfValidation'</span> =&gt; <span class="keyword">false</span>,        <span class="comment">// 这里设置false</span></span><br><span class="line">        ],</span><br><span class="line">    ],</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+<h4 id="解决方法二："><a href="#解决方法二：" class="headerlink" title="解决方法二："></a>解决方法二：</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在需要post的控制器中加配置</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> $enableCsrfValidation = <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/11/23/yii-fix/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-ftp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -625,19 +690,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">ftp upload download</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">centos vsftpd</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">centos vsftpd</a>
               </li>
             
             <div class="clearfix"></div>
