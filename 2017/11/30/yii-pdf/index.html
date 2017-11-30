@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://zezong.wang">
-  <title>Tag: mysql | Hexo</title>
+  <title>yii导出pdf | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://zezong.wang/tags/mysql/index.html">
+  <meta name="description" content="yii导出pdf插件网站http://demos.krajee.com/mpdf 安装1$ php composer.phar require kartik-v/yii2-mpdf &quot;*&quot; 或添加:1&quot;kartik-v/yii2-mpdf&quot;: &quot;*&quot; 到composer.json更新1php composer.phar update 使用controller12345678910111213141">
+<meta name="keywords" content="yii pdf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yii导出pdf">
+<meta property="og:url" content="http://zezong.wang/2017/11/30/yii-pdf/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="yii导出pdf插件网站http://demos.krajee.com/mpdf 安装1$ php composer.phar require kartik-v/yii2-mpdf &quot;*&quot; 或添加:1&quot;kartik-v/yii2-mpdf&quot;: &quot;*&quot; 到composer.json更新1php composer.phar update 使用controller12345678910111213141">
+<meta property="og:updated_time" content="2017-11-30T06:31:42.902Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="yii导出pdf">
+<meta name="twitter:description" content="yii导出pdf插件网站http://demos.krajee.com/mpdf 安装1$ php composer.phar require kartik-v/yii2-mpdf &quot;*&quot; 或添加:1&quot;kartik-v/yii2-mpdf&quot;: &quot;*&quot; 到composer.json更新1php composer.phar update 使用controller12345678910111213141">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -149,60 +154,172 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-yii-pdf" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/11/20/mysql-use/" class="archive-article-date">
-  	<time datetime="2017-11-20T04:23:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/11/20/mysql-use/">mysql常用用法</a>
+    <h1 class="article-title" itemprop="name">
+      yii导出pdf
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/11/30/yii-pdf/" class="archive-article-date">
+  	<time datetime="2017-11-30T06:13:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="yii导出pdf"><a href="#yii导出pdf" class="headerlink" title="yii导出pdf"></a>yii导出pdf</h2><h3 id="插件网站"><a href="#插件网站" class="headerlink" title="插件网站"></a>插件网站</h3><p><a href="http://demos.krajee.com/mpdf" target="_blank" rel="external">http://demos.krajee.com/mpdf</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ php composer.phar <span class="keyword">require</span> kartik-v/yii2-mpdf <span class="string">"*"</span></span><br></pre></td></tr></table></figure>
+<p>或添加:<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"kartik-v/yii2-mpdf"</span>: <span class="string">"*"</span></span><br></pre></td></tr></table></figure></p>
+<p>到composer.json更新<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php composer.phar update</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="controller"><a href="#controller" class="headerlink" title="controller"></a>controller</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">kartik</span>\<span class="title">mpdf</span>\<span class="title">Pdf</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">actionExport</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $model = Article::findOne(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    $pdf = <span class="keyword">new</span> Pdf([</span><br><span class="line">        <span class="string">'mode'</span> =&gt; Pdf::MODE_ASIAN,      <span class="comment">// 中文</span></span><br><span class="line">        <span class="comment">/** content 页面内容 渲染一个页面视图 **/</span></span><br><span class="line">        <span class="string">'content'</span> =&gt; <span class="keyword">$this</span>-&gt;renderPartial(<span class="string">'_base-info-table'</span>,[</span><br><span class="line">            <span class="string">'model'</span> =&gt; $model,</span><br><span class="line">        ]),</span><br><span class="line">        <span class="string">'methods'</span> =&gt; [</span><br><span class="line">            <span class="string">'SetHeader'</span> =&gt; [<span class="string">'Generated By: 作者 || Generated On: '</span> . date(<span class="string">"r"</span>)],</span><br><span class="line">            <span class="string">'SetFooter'</span> =&gt; [<span class="string">'|Page &#123;PAGENO&#125;|'</span>],</span><br><span class="line">        ]</span><br><span class="line">    ]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> $pdf-&gt;render();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="中文乱码"><a href="#中文乱码" class="headerlink" title="中文乱码"></a>中文乱码</h3><p>在mPDF的库文件中找到config.php<br>如：vendor/mpdf/mpdf/config.php<br>修改成下面的参数<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;autoScriptToLang = <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">$this</span>-&gt;autoLangToFont = <span class="keyword">true</span>;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">yii pdf</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://zezong.wang/2017/11/30/yii-pdf/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/11/23/yii-fix/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">yii 常见问题处理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -225,9 +342,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
