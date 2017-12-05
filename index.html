@@ -151,6 +151,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-php7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/05/php7/">php7安装</a>
+    </h1>
+  
+
+        
+        <a href="/2017/12/05/php7/" class="archive-article-date">
+  	<time datetime="2017-12-05T04:29:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>linux安装php7，安装多版本php</p>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd /usr/local/src</span></span><br><span class="line"><span class="comment"># http://cn2.php.net/distributions/php-7.1.12.tar.gz</span></span><br></pre></td></tr></table></figure>
+<h4 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># tar -xzvf php-7.1.12.tar.gz</span></span><br></pre></td></tr></table></figure>
+<h4 id="进入安装目录"><a href="#进入安装目录" class="headerlink" title="进入安装目录"></a>进入安装目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cd php-7.1.12</span></span><br></pre></td></tr></table></figure>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ./configure --prefix=/opt/application/php7 --enable-fpm </span></span><br><span class="line">--with-fpm-user=nginx --with-fpm-group=nginx --with-mysqli --with-zlib </span><br><span class="line">--with-curl --with-gd --with-jpeg-dir --with-png-dir --with-freetype-dir </span><br><span class="line">--with-openssl --<span class="built_in">enable</span>-mbstring --<span class="built_in">enable</span>-xml --<span class="built_in">enable</span>-session --<span class="built_in">enable</span>-ftp </span><br><span class="line">--<span class="built_in">enable</span>-pdo -<span class="built_in">enable</span>-tokenizer --<span class="built_in">enable</span>-zip </span><br><span class="line">--with-pdo-mysql=/opt/application/mysql --<span class="built_in">enable</span>-mysqlnd</span><br></pre></td></tr></table></figure>
+<p>–prefix  php安装目录 <br><br>–with-pdo-mysql 设置mysql连接方式为pdo_mysql，这里写mysql安装目录 </p>
+<h4 id="编译成功会出现类似下面的提示"><a href="#编译成功会出现类似下面的提示" class="headerlink" title="编译成功会出现类似下面的提示"></a>编译成功会出现类似下面的提示</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">+--------------------------------------------------------------------+</span><br><span class="line">| License:                                                           |</span><br><span class="line">| This software is subject to the PHP License, available <span class="keyword">in</span> this     |</span><br><span class="line">| distribution <span class="keyword">in</span> the file LICENSE.  By continuing this installation |</span><br><span class="line">| process, you are bound by the terms of this license agreement.     |</span><br><span class="line">| If you <span class="keyword">do</span> not agree with the terms of this license, you must abort |</span><br><span class="line">| the installation process at this point.                            |</span><br><span class="line">+--------------------------------------------------------------------+</span><br><span class="line">Thank you <span class="keyword">for</span> using PHP.</span><br></pre></td></tr></table></figure>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># make</span></span><br><span class="line"><span class="comment"># make install</span></span><br></pre></td></tr></table></figure>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cp /usr/local/src/php-7.1.12/php.ini-development  /opt/application/php7/lib/php.ini</span></span><br><span class="line"><span class="comment"># vim /opt/application/php7/lib/php.ini</span></span><br></pre></td></tr></table></figure>
+<p>修改pdo_mysql连接，查找pdo_mysql.default_socket,修改为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pdo_mysql.default_socket = /home/data/3307/mysql.sock</span><br></pre></td></tr></table></figure></p>
+<p>修改时区<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date.timezone = Asia/Shanghai</span><br></pre></td></tr></table></figure></p>
+<h4 id="验证安装"><a href="#验证安装" class="headerlink" title="验证安装"></a>验证安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /opt/application/php7/bin/php -v</span></span><br><span class="line">PHP 7.1.12 (cli) (built: Dec  5 2017 10:15:50) ( NTS )</span><br><span class="line">Copyright (c) 1997-2017 The PHP Group</span><br><span class="line">Zend Engine v3.1.0, Copyright (c) 1998-2017 Zend Technologies</span><br></pre></td></tr></table></figure>
+<p>配置php-fpm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cp /opt/application/php7/etc/php-fpm.conf.default /opt/application/php7/etc/php-fpm.conf</span></span><br><span class="line"><span class="comment"># cp /opt/application/php7/etc/php-fpm.d/www.conf.default /opt/application/php7/etc/php-fpm.d/www.conf</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="修改-www-conf"><a href="#修改-www-conf" class="headerlink" title="修改 www.conf"></a>修改 www.conf</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /opt/application/php7/etc/php-fpm.d/www.conf</span></span><br></pre></td></tr></table></figure>
+<p>将<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user = nobody</span><br><span class="line">group = nobody</span><br></pre></td></tr></table></figure></p>
+<p>修改为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user = nginx</span><br><span class="line">group = nginx</span><br></pre></td></tr></table></figure></p>
+<p>修改要使用的端口<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen = 127.0.0.1:9001</span><br></pre></td></tr></table></figure></p>
+<h4 id="配置php-fpm启动脚本"><a href="#配置php-fpm启动脚本" class="headerlink" title="配置php-fpm启动脚本"></a>配置php-fpm启动脚本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可直接运行</span></span><br><span class="line"><span class="comment"># /opt/application/php7/sbin/php-fpm</span></span><br></pre></td></tr></table></figure>
+<p>配置成服务启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># cp /usr/local/src/php-7.1.12/sapi/fpm/php-fpm.service /usr/lib/systemd/system/</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># vim /usr/lib/systemd/system/php-fpm.service</span></span><br></pre></td></tr></table></figure>
+<p>将<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PIDFile=<span class="variable">$&#123;prefix&#125;</span>/var/run/php-fpm.pid</span><br><span class="line">ExecStart=<span class="variable">$&#123;exec_prefix&#125;</span>/sbin/php-fpm --nodaemonize --fpm-config <span class="variable">$&#123;prefix&#125;</span>/etc/php-fpm.conf</span><br></pre></td></tr></table></figure></p>
+<p>修改成<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PIDFile=/opt/application/php7/var/run/php-fpm.pid</span><br><span class="line">ExecStart=/opt/application/php7/sbin/php-fpm --nodaemonize --fpm-config /opt/application/php7/etc/php-fpm.conf</span><br></pre></td></tr></table></figure></p>
+<p>重新载入 systemd<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># systemctl daemon-reload</span></span><br></pre></td></tr></table></figure></p>
+<p>让 php-fpm 随机启动<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># systemctl enable php-fpm</span></span><br><span class="line">ln -s <span class="string">'/usr/lib/systemd/system/php-fpm.service'</span> <span class="string">'/etc/systemd/system/multi-user.target.wants/php-fpm.service'</span></span><br></pre></td></tr></table></figure></p>
+<p>立即启动 php-fpm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># systemctl start php-fpm</span></span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/12/05/php7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-fiddler" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -841,7 +928,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ftp upload download</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -849,15 +936,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">centos vsftpd</a>
+                <a href="javascript:void(0)" class="js-tag color5">ftp upload download</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">yii pdf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">centos vsftpd</a>
               </li>
             
             <div class="clearfix"></div>
